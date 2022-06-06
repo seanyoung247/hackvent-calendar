@@ -1,11 +1,10 @@
 from flask import Flask
+from reactsrv import reactsrv
 
-app = Flask(__name__)
+app = Flask(__name__, static_folder=None)
 
 
-@app.route('/')
-def index():
-    return '<h1>Hello World</h1>'
+reactsrv.init(app, 'frontend')
 
 
 if __name__ == "__main__":
