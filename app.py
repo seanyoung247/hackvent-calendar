@@ -1,5 +1,5 @@
 from flask import Flask
-from reactsrv import reactsrv
+import reactsrv
 
 app = Flask(__name__, static_folder=None)
 
