@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<script>
+
+window.onmessage = e => {
+    const message = e.data;
+    if (message.sender === 'main') {
+        const responce = {
+            sender: "sandbox",
+            type: "responce",
+            data: `I heard: ${message.data}`
+        }
+        e.source.postMessage(responce, e.origin);
+    }
+}
+
+</script>
+</head>
+<body></body>
+</html>
