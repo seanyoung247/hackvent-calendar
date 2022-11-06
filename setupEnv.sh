@@ -8,3 +8,6 @@ pip install -r requirements.txt
 # Setup React environment
 cd react-src
 npm install
+
+# Cleanup
+deactivate
