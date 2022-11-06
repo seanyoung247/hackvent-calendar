@@ -1,6 +1,6 @@
 
 import React, { useEffect, useRef } from 'react';
-
+import { msgTypes, Message } from '../../utils/messaging.js';
 
 const style = {
     "position": "absolute",
@@ -13,18 +13,17 @@ const style = {
 
 export default function CodeSandbox({title, code, ...rest}) {
     const sandboxEl = useRef(null);
-    const message = {
-        sender: "main",
-        type: "post",
-        data: code || 'none'
-    }
-    sandboxEl.current?.contentWindow.postMessage(message, '*');
+    sandboxEl.current?.contentWindow.postMessage(Message(
+        'main',
+        msgTypes.code,
+        code
+    ), '*');
 
     useEffect(()=>{
         const onMsg = e => {
             const message = e.data;
             if (message.sender === 'sandbox') {
-                console.log('Main recieved:', message.data);
+                console.log('Main received:', message.data);
             }
         }
         window.addEventListener('message', onMsg);

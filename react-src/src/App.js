@@ -23,7 +23,7 @@ function App() {
         <CodeSandbox 
           code={val} 
           title="codeSandbox"
-          srcDoc="<script src='static/sandbox/sandbox.js'></script>"
+          srcDoc="<script src='static/sandbox/sandbox.js' type='module'></script>"
         />
       </main>
     </div>
