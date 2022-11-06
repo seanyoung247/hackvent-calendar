@@ -22,8 +22,9 @@ function App() {
 
         <CodeSandbox 
           code={val} 
-          title="codeSandbox" 
-          srcDoc="<script src='static/sandbox/sandbox.js'></script>"/>
+          title="codeSandbox"
+          srcDoc="<script src='static/sandbox/sandbox.js'></script>"
+        />
       </main>
     </div>
   );
