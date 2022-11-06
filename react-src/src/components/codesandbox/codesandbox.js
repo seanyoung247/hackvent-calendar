@@ -1,6 +1,14 @@
 
 import React, { useEffect, useRef } from 'react';
-import Styles from './codesandbox.module.css';
+
+
+const style = {
+    "position": "absolute",
+    "pointerEvents": "none",
+    "width":"0",
+    "height":"0",
+    "opacity": "0"
+}
 
 
 export default function CodeSandbox({title, code, ...rest}) {
@@ -28,8 +36,9 @@ export default function CodeSandbox({title, code, ...rest}) {
             {...rest}
             title={title}
             ref={sandboxEl}
-            className={Styles.sandbox}
-            sandbox="allow-scripts" frameBorder="0">
-        </iframe>
+            style={style}
+            sandbox="allow-scripts" 
+            frameBorder="0"
+        />
     );
 }
