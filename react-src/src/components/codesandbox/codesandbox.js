@@ -1,9 +1,9 @@
 
 import React, { useEffect, useRef } from 'react';
-import Styles from './sandbox.module.css';
+import Styles from './codesandbox.module.css';
 
 
-export default function CodeSandbox({code, ...rest}) {
+export default function CodeSandbox({title, code, ...rest}) {
     const sandboxEl = useRef(null);
     const message = {
         sender: "main",
@@ -26,6 +26,7 @@ export default function CodeSandbox({code, ...rest}) {
     return (
         <iframe 
             {...rest}
+            title={title}
             ref={sandboxEl}
             className={Styles.sandbox}
             sandbox="allow-scripts" frameBorder="0">

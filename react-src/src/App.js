@@ -1,6 +1,6 @@
 
 import { useRef, useState } from 'react';
-import CodeSandbox from './components/sandbox/sandbox';
+import CodeSandbox from './components/codesandbox/codesandbox';
 import './App.css';
 
 
