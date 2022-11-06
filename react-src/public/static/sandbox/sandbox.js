@@ -31,6 +31,8 @@ window.onmessage = e => {
         // Recieves mesages from the worker
         worker.onmessage = e => {
             mainWindow.postMessage(e.data, origin);
+            //ToDo: worker should be terminated after time delay or 
+            //      completion signal, whichever comes first
             worker.terminate();
         }
         // Sends the start message to the worker
@@ -40,7 +42,7 @@ window.onmessage = e => {
         const responce = {
             sender: "sandbox",
             type: "responce",
-            data: `I heard: ${message.data}`
+            data: `Sandbox recieved: ${message.data}`
         }
         mainWindow.postMessage(responce, origin);
     }
