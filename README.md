@@ -2,7 +2,7 @@
 
 Hackvent calendar is a website providing interview style coding challenges each day over the course of Decemeber in an Advent calendar style.
 
-In late 2021 I was involved in a hackathon with a theme of the festive holidays. My team produced a coding advent calendar that can be seen deployed here: (hackvent calendar)[https://manni8436.github.io/hackvent-calendar/], which went on to get first place in the hackathon. It was a great achievement by all involved, and a great idea well executed, especially since it was written over the course of a weekend.
+In late 2021 I was involved in a hackathon with a theme of the festive holidays. My team produced a coding advent calendar that can be seen deployed here: [hackvent calendar](https://manni8436.github.io/hackvent-calendar/), which went on to get first place in the hackathon. It was a great achievement by all involved, and a great idea well executed, especially since it was written over the course of a weekend.
 
 This project is to continue that one and take it further.
 
