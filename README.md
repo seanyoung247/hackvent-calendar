@@ -13,7 +13,7 @@ Shared under the GPL3 licence.
 ## Planned Features
 Ideally the site should provide interview style coding challenges, one per day between 1st and 25th of December, in different difficulty levels (easy, medium, and hard) and completable in the two languages CI teaches as part of it's fullstack course: Python and JavaScript. There should be leaderboards for each challenge in each language and for different aspects. For instance quickest to complete, code golf (fewest lines/characters), most performant etc.
 
-An MVP should hopefully aim to be ready for the 1st of December 2022 and provide the bare minimum features:
+An MVP should hopefully aim provide the bare minimum features:
 - Easy challenges
 - JavaScript language support
 - Safe in browser code execution
