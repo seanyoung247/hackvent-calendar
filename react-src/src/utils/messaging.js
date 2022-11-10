@@ -1,9 +1,9 @@
 
 export const msgTypes = Object.freeze({
-    post: 1,
-    code: 2,
-    error: 3,
-    success: 4
+    post: 1,    // Misc
+    code: 2,    // Code injection
+    error: 3,   // Error during code run
+    success: 4  // Code run success
 });
 
 /**
