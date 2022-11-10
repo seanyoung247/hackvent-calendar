@@ -1,3 +1,6 @@
+
+""" Imports server modules and starts flask server """
+
 from flask import Flask
 import reactsrv
 import challenges

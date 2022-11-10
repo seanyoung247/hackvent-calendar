@@ -1,21 +1,22 @@
 
-import os
-from . import urls
+""" This module serves frontend static files, intended for react based projects """
 
+import os
 from flask import Blueprint
+
+from . import urls
 
 
 def init(app, react_folder='build'):
     """
     Initiates this app and attaches it to the flask instance passed.
     """
-    bp = Blueprint( 
-        name="reactsrv", import_name='reactsrv', 
+    blueprint = Blueprint(
+        name="reactsrv", import_name='reactsrv',
         template_folder=os.path.join(app.root_path, react_folder),
         static_folder=os.path.join(app.root_path, react_folder, 'static')
     )
 
-    urls.add_urls(bp)
+    urls.add_urls(blueprint)
 
-    app.register_blueprint(bp)
-    
+    app.register_blueprint(blueprint)
