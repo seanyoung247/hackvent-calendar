@@ -5,13 +5,21 @@ Implements modular server management commands
 import os
 
 
+class Commands():
+    commandList = {}
+
+    @classmethod
+    def registerCommand(cls, command):
+        cls.update(command.name(), command)
+
+
+
 def commands():
     """ Enumerates all recognised commands """
     return {
         'addmodule': AddModule(),
         'remmodule': RemModule(),
         'help': ShowHelp(),
-        '?': ShowHelp(),
     }
 
 
@@ -27,10 +35,19 @@ def get_command(command):
 
 class Command:
     """ Base class for management commands """
+    def __init_subclass__(cls, **kwargs):
+        """ Automatically registers commands in the command list """
+        super().__init_subclass__(**kwargs)
+        # Register here ...
+
+    @staticmethod
+    def name():
+        raise NotImplementedError()
+
     @staticmethod
     def help():
         """ returns a string of help text for using this command """
-        return None
+        raise NotImplementedError()
 
     @classmethod
     def valid_args(cls, args, count):
@@ -41,7 +58,7 @@ class Command:
         return False
 
     def __call__(self, args):
-        """ Ensures the correct number of arguments are passed """
+        pass
 
 
 class AddModule(Command):
@@ -82,7 +99,7 @@ class ShowHelp(Command):
         return 'Shows help text'
 
     def __call__(self, args=None):
-        print('Usage: python manage.py <command> <options>')
+        print('Usage: python3 manage.py <command> <options>')
         print('Commands:')
         commandlist = commands()
         for (key,value) in commandlist.items():
