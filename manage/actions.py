@@ -9,28 +9,16 @@ class Commands():
     commandList = {}
 
     @classmethod
-    def registerCommand(cls, command):
-        cls.update(command.name(), command)
-
-
-
-def commands():
-    """ Enumerates all recognised commands """
-    return {
-        'addmodule': AddModule(),
-        'remmodule': RemModule(),
-        'help': ShowHelp(),
-    }
-
-
-def get_command(command):
-    """ Returns the command object that implements the requested command """
-    commandList = commands()
-    command = commandList.get(command)
-    if command:
-        return command
+    def register_command(cls, command):
+        cls.commandList.update(command.name(), command)
     
-    return commandList.get('help')
+    @classmethod
+    def list(cls):
+        return cls.commandList
+
+    @classmethod
+    def get_command(cls, command):
+        return cls.commandList.get(command)
 
 
 class Command:
@@ -38,7 +26,7 @@ class Command:
     def __init_subclass__(cls, **kwargs):
         """ Automatically registers commands in the command list """
         super().__init_subclass__(**kwargs)
-        # Register here ...
+        Commands.register_command(cls)
 
     @staticmethod
     def name():
@@ -64,6 +52,10 @@ class Command:
 class AddModule(Command):
     """ Adds a new server module """
     @staticmethod
+    def name():
+        return "addmodule"
+
+    @staticmethod
     def help():
         return 'Usage: python3 manage.py addmodule <module name>'
 
@@ -82,6 +74,10 @@ class AddModule(Command):
 class RemModule(Command):
     """ Removes an existing server module """
     @staticmethod
+    def name():
+        return "remmodule"
+
+    @staticmethod
     def help():
         return 'Usage: python3 manage.py remmodule <module name>'
 
@@ -95,12 +91,16 @@ class RemModule(Command):
 class ShowHelp(Command):
     """ Shows all commands help text """
     @staticmethod
+    def name():
+        return "help"
+
+    @staticmethod
     def help():
         return 'Shows help text'
 
     def __call__(self, args=None):
         print('Usage: python3 manage.py <command> <options>')
         print('Commands:')
-        commandlist = commands()
+        commandlist = Commands.list()
         for (key,value) in commandlist.items():
             print(f"{key:>15} : {value.help()}")
