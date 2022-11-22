@@ -10,7 +10,7 @@ class Commands():
 
     @classmethod
     def register_command(cls, command):
-        cls.commandList.update(command.name(), command)
+        cls.commandList[command.name()] = command()
     
     @classmethod
     def list(cls):
@@ -45,8 +45,8 @@ class Command:
         print(cls.help())
         return False
 
-    def __call__(self, args):
-        pass
+    def __call__(self, args=None):
+        raise NotImplementedError()
 
 
 class AddModule(Command):
