@@ -1,0 +1,22 @@
+"""
+This module provides server routes for code challenges
+"""
+
+import os
+from flask import Blueprint
+
+from . import urls
+
+
+def init(app):
+    """
+    Initiates this app and attaches it to the flask instance passed.
+    """
+    blueprint = Blueprint(
+        name="{{module_name}}", import_name="{{module_name}}"
+    )
+
+    urls.add_urls(blueprint)
+
+    app.register_blueprint(blueprint)
+    

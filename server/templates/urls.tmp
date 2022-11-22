@@ -1,0 +1,11 @@
+"""
+Defines the url routes managed by this module
+"""
+from . import views
+
+
+def add_urls(blueprint):
+    """ Defines the url routes served by this module """
+    # Your url definitions go here go here:
+    # ex.: blueprint.add_url_rule(rule='/route', view_func=views.func)
+
