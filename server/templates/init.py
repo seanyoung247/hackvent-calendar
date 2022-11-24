@@ -16,7 +16,9 @@ def init(app):
         name="{{module_name}}", import_name="{{module_name}}"
     )
 
-    urls.add_urls(blueprint)
+    url_list = urls.url_rules()
+    for url in url_list:
+        blueprint.add_url_rule(rule=url['rule'], view_func=url['view'])
 
     app.register_blueprint(blueprint)
     
